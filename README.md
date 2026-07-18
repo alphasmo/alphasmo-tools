@@ -1,4 +1,4 @@
-# alphasmo — The Ultimate Smart Money API for AI
+# AlphaSMO — The Ultimate Smart Money API for AI
 
 [![npm version](https://img.shields.io/npm/v/alphasmo.svg)](https://www.npmjs.com/package/alphasmo)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
