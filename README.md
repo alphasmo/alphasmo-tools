@@ -111,7 +111,19 @@ export ALPHASMO_API_KEY=ask_live_...
 
 ## MCP server
 
-Add this to your MCP client config (Claude Desktop, Claude Code, Cursor, etc.):
+### Option 1: `claude mcp add` (recommended)
+
+If you're using [Claude Code](https://docs.claude.com/claude-code), register the server with one command:
+
+```bash
+claude mcp add alphasmo -- npx -y alphasmo@latest mcp
+```
+
+Add `-e ALPHASMO_API_KEY=ask_live_...` before the `--` to raise your rate limit. Run `claude mcp list` to confirm it's connected.
+
+### Option 2: manual MCP client config
+
+For Claude Desktop, Cursor, or any other MCP client, add this to your config file directly:
 
 ```json
 {
@@ -125,7 +137,7 @@ Add this to your MCP client config (Claude Desktop, Claude Code, Cursor, etc.):
 }
 ```
 
-Works anonymously out of the box, at lower rate limits than with a key. Tools exposed: `search_institutions`, `get_institution_profile`, `get_institution_holdings`, `get_stock_overview`, `get_stock_flows`, `get_insider_activity`, `get_smart_money_convergence`.
+Both options work anonymously out of the box, at lower rate limits than with a key. Tools exposed: `search_institutions`, `get_institution_profile`, `get_institution_holdings`, `get_stock_overview`, `get_stock_flows`, `get_insider_activity`, `get_smart_money_convergence`.
 
 Full endpoint reference: [alphasmo.com/en/developer/docs](https://alphasmo.com/en/developer/docs).
 
