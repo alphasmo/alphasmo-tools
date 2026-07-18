@@ -1,4 +1,6 @@
-export type OutputFormat = "json" | "compact" | "table";
+import { toCsv } from "./csv.js";
+
+export type OutputFormat = "json" | "compact" | "table" | "csv";
 
 export function printResult(
   data: unknown,
@@ -7,6 +9,10 @@ export function printResult(
 ): void {
   if (format === "table") {
     process.stdout.write(`${renderTable(data as never)}\n`);
+    return;
+  }
+  if (format === "csv") {
+    process.stdout.write(toCsv(data));
     return;
   }
   if (format === "compact") {

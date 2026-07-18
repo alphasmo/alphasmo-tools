@@ -85,12 +85,17 @@ alphasmo --help
 | `alphasmo convergence [-l\|--limit] [--min-confidence] [--days]` | Tickers where 13F institutions *and* insiders are both buying — the flagship signal |
 | `alphasmo mcp` | Start the MCP server over stdio |
 
-Global flags on every command: `--api-key <key>` (env `ALPHASMO_API_KEY`), `--base-url <url>` (env `ALPHASMO_BASE_URL`), `-f`/`--format json|compact|table`, `--json` (shorthand for `--format json`).
+Global flags on every command: `--api-key <key>` (env `ALPHASMO_API_KEY`), `--base-url <url>` (env `ALPHASMO_BASE_URL`), `-f`/`--format json|compact|table|csv`, `--json` (shorthand for `--format json`), `--csv` (shorthand for `--format csv`).
 
 **Output format auto-detects your context** — no flag needed in the common case:
 - Typed directly in a terminal → a readable table, with numbers comma-formatted (`263,095,703,570`).
 - Piped, redirected, or spawned by a script/AI agent (stdout isn't a TTY) → JSON, safe to pipe into `jq` or feed to an agent.
-- `--format`/`--json` always override the auto-detection either way.
+- `--format`/`--json`/`--csv` always override the auto-detection either way.
+
+```bash
+alphasmo stocks flows --csv > flows.csv
+alphasmo insider trades AAPL --csv | column -s, -t
+```
 
 Errors go to stderr with a distinct exit code (`2` not found, `3` auth, `4` rate limit, `5` unexpected response shape, `1` other), so scripts can branch without string-matching.
 

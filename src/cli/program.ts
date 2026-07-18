@@ -29,9 +29,10 @@ export function createProgram(): Command {
       new Option(
         "-f, --format <format>",
         "output format (default: table in a terminal, json when piped/scripted)",
-      ).choices(["json", "compact", "table"]),
+      ).choices(["json", "compact", "table", "csv"]),
     )
-    .option("--json", "shorthand for --format json");
+    .option("--json", "shorthand for --format json")
+    .option("--csv", "shorthand for --format csv");
 
   registerInstitutionsCommand(program);
   registerStocksCommand(program);

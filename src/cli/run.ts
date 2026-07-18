@@ -7,6 +7,7 @@ export interface GlobalOptions {
   baseUrl?: string;
   format?: OutputFormat;
   json?: boolean;
+  csv?: boolean;
 }
 
 export function buildClient(opts: GlobalOptions): AlphasmoClient {
@@ -24,6 +25,7 @@ export function buildClient(opts: GlobalOptions): AlphasmoClient {
  * when passed explicitly.
  */
 export function resolveFormat(opts: GlobalOptions): OutputFormat {
+  if (opts.csv) return "csv";
   if (opts.json) return "json";
   if (opts.format) return opts.format;
   return process.stdout.isTTY ? "table" : "json";
@@ -33,11 +35,19 @@ export async function runAction<T>(
   opts: GlobalOptions,
   action: (client: AlphasmoClient) => Promise<T>,
   renderTable: (data: T) => string,
+  /**
+   * Optional override for what --format csv serializes, when the JSON/table shape (e.g. a
+   * detail object wrapping a list, like `insider trades`' { ticker, recent_trades }) isn't
+   * itself the tabular data a CSV export wants. Defaults to serializing `data` as-is.
+   */
+  toCsvData?: (data: T) => unknown,
 ): Promise<void> {
   try {
     const client = buildClient(opts);
     const data = await action(client);
-    printResult(data, resolveFormat(opts), renderTable as (data: never) => string);
+    const format = resolveFormat(opts);
+    const csvSource = format === "csv" && toCsvData ? toCsvData(data) : data;
+    printResult(csvSource, format, renderTable as (data: never) => string);
   } catch (error) {
     process.stderr.write(`${messageForError(error)}\n`);
     process.exitCode = exitCodeForError(error);

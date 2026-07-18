@@ -30,6 +30,7 @@ export function registerInsiderCommand(program: Command): void {
           };
         },
         renderInsiderTrades,
+        (data) => data.recent_trades,
       );
     });
 

@@ -3,7 +3,7 @@ import { type Server, createServer } from "node:http";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { convergenceSignalFixture, institutionFixture } from "./fixtures.js";
+import { convergenceSignalFixture, insiderStockFixture, institutionFixture } from "./fixtures.js";
 
 const REPO_ROOT = fileURLToPath(new URL("..", import.meta.url));
 const BIN_PATH = path.join(REPO_ROOT, "dist/cli/bin.js");
@@ -27,6 +27,11 @@ beforeAll(async () => {
     if (url.pathname === "/api/v1/insider/smart-money-convergence") {
       res.writeHead(200, { "content-type": "application/json" });
       res.end(JSON.stringify([convergenceSignalFixture]));
+      return;
+    }
+    if (url.pathname === "/api/v1/insider/stock/AAPL") {
+      res.writeHead(200, { "content-type": "application/json" });
+      res.end(JSON.stringify(insiderStockFixture));
       return;
     }
     res.writeHead(404);
@@ -137,5 +142,38 @@ describe("alphasmo CLI", () => {
     expect(code).toBe(0);
     expect(stdout).toContain("ticker");
     expect(stdout).toContain("AAPL");
+  });
+
+  it("--csv renders a list response as a CSV header + row", async () => {
+    const { stdout, stderr, code } = await runCli([
+      "institutions",
+      "list",
+      "--base-url",
+      baseUrl,
+      "--csv",
+    ]);
+    expect(stderr).toBe("");
+    expect(code).toBe(0);
+    const lines = stdout.trim().split("\n");
+    expect(lines[0]).toBe(Object.keys(institutionFixture).join(","));
+    expect(lines[1]).toContain("VANGUARD GROUP INC");
+  });
+
+  it("insider trades --format csv exports the trades array, not the wrapper object", async () => {
+    const { stdout, stderr, code } = await runCli([
+      "insider",
+      "trades",
+      "AAPL",
+      "--base-url",
+      baseUrl,
+      "--format",
+      "csv",
+    ]);
+    expect(stderr).toBe("");
+    expect(code).toBe(0);
+    const lines = stdout.trim().split("\n");
+    expect(lines[0]).toBe(Object.keys(insiderStockFixture.recent_trades[0]).join(","));
+    expect(lines[0]).not.toContain("recent_trades");
+    expect(lines[1]).toContain("Jane Doe");
   });
 });
