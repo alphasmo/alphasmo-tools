@@ -1,0 +1,35 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.alphasmo/alphasmo-tools",
+  "description": "AlphaSMO: The Ultimate Smart Money API for AI — CLI + MCP server for 13F institutional holdings, insider trading, and smart-money convergence signals.",
+  "repository": {
+    "url": "https://github.com/alphasmo/alphasmo-tools",
+    "source": "github"
+  },
+  "version": "0.2.1",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "alphasmo",
+      "version": "0.2.1",
+      "transport": {
+        "type": "stdio"
+      },
+      "packageArguments": [
+        {
+          "type": "positional",
+          "value": "mcp"
+        }
+      ],
+      "environmentVariables": [
+        {
+          "name": "ALPHASMO_API_KEY",
+          "description": "Optional API key to raise the rate limit above the free anonymous tier",
+          "isRequired": false,
+          "isSecret": true,
+          "format": "string"
+        }
+      ]
+    }
+  ]
+}
