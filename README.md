@@ -8,7 +8,7 @@
 No signup, no API key, no setup — try it right now:
 
 ```bash
-npx alphasmo convergence
+npx alphasmo stocks flows --limit 10
 ```
 
 ## Why AlphaSMO
