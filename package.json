@@ -1,0 +1,82 @@
+{
+  "name": "alphasmo",
+  "version": "0.1.0",
+  "description": "AlphaSMO: The Ultimate Smart Money API for AI — CLI + MCP server for 13F institutional holdings, insider trading, and smart-money convergence signals.",
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://alphasmo.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alphasmo/alphasmo-tools.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alphasmo/alphasmo-tools/issues"
+  },
+  "keywords": [
+    "alphasmo",
+    "13f",
+    "13f-filings",
+    "smart-money",
+    "insider-trading",
+    "form-4",
+    "hedge-fund",
+    "sec-edgar",
+    "sec-filings",
+    "stock-market-data",
+    "trading-signals",
+    "finance-api",
+    "ai-agent",
+    "ai-agents",
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "cli",
+    "finance"
+  ],
+  "engines": {
+    "node": ">=18.17"
+  },
+  "bin": {
+    "alphasmo": "dist/cli/bin.js"
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": ["dist", "LICENSE", "README.md"],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "pretest": "npm run build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build && npm run test"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "cli-table3": "^0.6.5",
+    "commander": "^13.1.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/node": "^22.10.5",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.3",
+    "undici": "^7.2.0",
+    "vitest": "^4.1.10"
+  },
+  "allowScripts": {
+    "@biomejs/biome@1.9.4": true,
+    "esbuild@0.27.7": true
+  }
+}
