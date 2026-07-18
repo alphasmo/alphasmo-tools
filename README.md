@@ -1,8 +1,6 @@
 # alphasmo — The Ultimate Smart Money API for AI
 
 [![npm version](https://img.shields.io/npm/v/alphasmo.svg)](https://www.npmjs.com/package/alphasmo)
-[![npm downloads](https://img.shields.io/npm/dm/alphasmo.svg)](https://www.npmjs.com/package/alphasmo)
-[![CI](https://github.com/alphasmo/alphasmo-tools/actions/workflows/ci.yml/badge.svg)](https://github.com/alphasmo/alphasmo-tools/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 **CLI + [MCP server](https://modelcontextprotocol.io) for [AlphaSMO](https://alphasmo.com)** — SEC EDGAR 13F institutional holdings, Form 4 insider trading, and "smart money convergence" signals (tickers where hedge funds *and* company insiders are buying at the same time), queryable from your terminal, your scripts, or any MCP-compatible AI agent (Claude, ChatGPT, Cursor, etc.).
