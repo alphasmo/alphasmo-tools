@@ -1,7 +1,7 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.alphasmo/alphasmo-tools",
-  "description": "AlphaSMO: The Ultimate Smart Money API for AI — CLI + MCP server for 13F institutional holdings, insider trading, and smart-money convergence signals.",
+  "description": "CLI + MCP server for SEC 13F institutional holdings, insider trading, and smart money convergence.",
   "repository": {
     "url": "https://github.com/alphasmo/alphasmo-tools",
     "source": "github"
