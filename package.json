@@ -4,6 +4,7 @@
   "description": "AlphaSMO: The Ultimate Smart Money API for AI — CLI + MCP server for 13F institutional holdings, insider trading, and smart-money convergence signals.",
   "type": "module",
   "license": "MIT",
+  "author": "James Hsiao <james@alphasmo.com>",
   "homepage": "https://alphasmo.com",
   "repository": {
     "type": "git",
