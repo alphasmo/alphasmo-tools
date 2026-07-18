@@ -42,7 +42,7 @@ npx alphasmo stocks flows --limit 10
 - 🕵️ **Insider trading (Form 4)** — officer/director/10%-owner buys and sells, with a confidence score per ticker.
 - 🚀 **Smart money convergence** — the flagship signal: tickers where 13F institutions *and* company insiders are both buying right now.
 - 🤖 **Built for AI agents** — an MCP server out of the box, so Claude, ChatGPT, Cursor, or any MCP client can pull real financial data mid-conversation.
-- 🆓 **Free anonymous tier** — no signup required to try it; [get a free API key](https://alphasmo.com/en/developer) any time to raise your rate limit.
+- 🆓 **Free anonymous tier** — no signup required to try it; [get a free API key](https://alphasmo.com/developer) any time to raise your rate limit.
 
 ## Use cases
 
@@ -101,7 +101,7 @@ Errors go to stderr with a distinct exit code (`2` not found, `3` auth, `4` rate
 
 ## Get an API key
 
-Anonymous requests are rate-limited by IP. Sign up and mint a free key at **[alphasmo.com/en/developer](https://alphasmo.com/en/developer)**, then:
+Anonymous requests are rate-limited by IP. Sign up and mint a free key at **[alphasmo.com/developer](https://alphasmo.com/developer)**, then:
 
 ```bash
 alphasmo convergence --api-key ask_live_...
@@ -139,7 +139,7 @@ For Claude Desktop, Cursor, or any other MCP client, add this to your config fil
 
 Both options work anonymously out of the box, at lower rate limits than with a key. Tools exposed: `search_institutions`, `get_institution_profile`, `get_institution_holdings`, `get_stock_overview`, `get_stock_flows`, `get_insider_activity`, `get_smart_money_convergence`.
 
-Full endpoint reference: [alphasmo.com/en/developer/docs](https://alphasmo.com/en/developer/docs).
+Full endpoint reference: [alphasmo.com/developer/docs](https://alphasmo.com/developer/docs).
 
 ## Programmatic use
 
@@ -154,13 +154,13 @@ console.log(await client.getSmartMoneyConvergence({ limit: 5 }));
 npm install alphasmo
 ```
 
-A Python client + MCP server is also available — see [alphasmo.com/en/developer](https://alphasmo.com/en/developer) for setup.
+A Python client + MCP server is also available — see [alphasmo.com/developer](https://alphasmo.com/developer) for setup.
 
 ## Learn more
 
 - **[alphasmo.com](https://alphasmo.com)** — the full web app: institution profiles, stock screeners, insider-trading leaderboards
-- **[alphasmo.com/en/developer](https://alphasmo.com/en/developer)** — get a free API key
-- **[alphasmo.com/en/developer/docs](https://alphasmo.com/en/developer/docs)** — full public API reference
+- **[alphasmo.com/developer](https://alphasmo.com/developer)** — get a free API key
+- **[alphasmo.com/developer/docs](https://alphasmo.com/developer/docs)** — full public API reference
 
 ## License
 
