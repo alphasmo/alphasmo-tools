@@ -38,8 +38,8 @@ npx alphasmo stocks flows --limit 10
 ```
 ## Why AlphaSMO
 
-- 📊 **13F institutional holdings** — every hedge fund and asset manager's quarterly SEC filings: AUM, positions, and behavioral "personality scores" (concentration, turnover, sector conviction).
-- 🕵️ **Insider trading (Form 4)** — officer/director/10%-owner buys and sells, with a confidence score per ticker.
+- 📊 **13F institutional holdings** — every hedge fund and asset manager's quarterly SEC filings: AUM, positions, and behavioral "personality scores" (concentration, turnover, sector conviction). Read our guide on [What Is a 13F Filing?](https://alphasmo.com/blog/what-is-13f-filing) and [How to Read Institutional Holdings Changes](https://alphasmo.com/blog/how-to-read-institutional-holdings-changes).
+- 🕵️ **Insider trading (Form 4 & 144)** — officer/director/10%-owner buys and sells, with a confidence score per ticker. Learn more in [What Is a Form 4 Filing?](https://alphasmo.com/blog/what-is-form-4-filing) and [What Is a Form 144 Filing?](https://alphasmo.com/blog/what-is-form-144-filing).
 - 🚀 **Smart money convergence** — the flagship signal: tickers where 13F institutions *and* company insiders are both buying right now.
 - 🤖 **Built for AI agents** — an MCP server out of the box, so Claude, ChatGPT, Cursor, or any MCP client can pull real financial data mid-conversation.
 - 🆓 **Free anonymous tier** — no signup required to try it; [get a free API key](https://alphasmo.com/developer) any time to raise your rate limit.
@@ -161,6 +161,16 @@ A Python client + MCP server is also available — see [alphasmo.com/developer](
 - **[alphasmo.com](https://alphasmo.com)** — the full web app: institution profiles, stock screeners, insider-trading leaderboards
 - **[alphasmo.com/developer](https://alphasmo.com/developer)** — get a free API key
 - **[alphasmo.com/developer/docs](https://alphasmo.com/developer/docs)** — full public API reference
+
+### Educational Guides & SEC Filings Deep Dives
+
+Deepen your understanding of institutional holdings and SEC filing dynamics:
+
+- **[What Is a 13F Filing?](https://alphasmo.com/blog/what-is-13f-filing)** — Beginner's guide to institutional holdings disclosures.
+- **[What Is a Form 4 Filing?](https://alphasmo.com/blog/what-is-form-4-filing)** — How insider buying & selling gets reported.
+- **[What Is a Form 144 Filing?](https://alphasmo.com/blog/what-is-form-144-filing)** — Understanding SEC pre-sale notices before insider dumps.
+- **[13D vs. 13G Beneficial Ownership](https://alphasmo.com/blog/13d-vs-13g-beneficial-ownership)** — Uncovering 5% ownership filings and activist investor intent.
+- **[How to Read Institutional Holdings Changes](https://alphasmo.com/blog/how-to-read-institutional-holdings-changes)** — Navigating 13F portfolio changes without being misled by stock splits or option mechanics.
 
 ## License
 
