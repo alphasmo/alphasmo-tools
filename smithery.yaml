@@ -1,0 +1,16 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties:
+      alphasmoApiKey:
+        type: string
+        description: Optional AlphaSMO API key to raise the rate limit above the free anonymous tier. Get one at https://alphasmo.com/developer.
+  commandFunction:
+    |-
+    (config) => ({
+      command: 'npx',
+      args: ['-y', 'alphasmo@latest', 'mcp'],
+      env: config.alphasmoApiKey ? { ALPHASMO_API_KEY: config.alphasmoApiKey } : {}
+    })
