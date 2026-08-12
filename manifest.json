@@ -1,0 +1,39 @@
+{
+  "manifest_version": "0.2",
+  "name": "alphasmo",
+  "version": "0.2.1",
+  "description": "AlphaSMO: The Ultimate Smart Money API for AI — CLI + MCP server for 13F institutional holdings, insider trading, and smart-money convergence signals.",
+  "long_description": "AlphaSMO tracks institutional money flow — 13F filings and insider (Form 4) transactions — and turns it into real-time, ready-to-use data for AI agents. This MCP server is the public gateway to the same production data that powers https://alphasmo.com, a live institutional-holdings and smart-money tracking platform used by investors and researchers. 7 tools cover institution search/profiles/holdings, stock overview and flows, insider activity by ticker, and smart-money convergence. Free anonymous tier out of the box; pass an API key from https://alphasmo.com/developer for higher rate limits.",
+  "author": {
+    "name": "James Hsiao <james@alphasmo.com>"
+  },
+  "homepage": "https://alphasmo.com",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/alphasmo/alphasmo-tools"
+  },
+  "server": {
+    "type": "node",
+    "entry_point": "dist/cli/bin.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/dist/cli/bin.js",
+        "mcp"
+      ],
+      "env": {
+        "ALPHASMO_API_KEY": "${user_config.alphasmo_api_key}"
+      }
+    }
+  },
+  "user_config": {
+    "alphasmo_api_key": {
+      "type": "string",
+      "title": "AlphaSMO API Key",
+      "description": "Optional. Raises the rate limit above the free anonymous tier. Get one at https://alphasmo.com/developer.",
+      "required": false,
+      "sensitive": true
+    }
+  },
+  "license": "MIT"
+}
